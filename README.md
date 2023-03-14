@@ -3,10 +3,10 @@
 
 - Projeto da solução: 
 
-Desenvolvido em camadas, seguindo o padrão SOLID, utilizando a Onion Architecture e TDD. 
-<img src="/Documentation/architecture_layers.jpg" style="width:200px"/>
-<hr />
-<img src="/Documentation/microservices_scheme.png" style="width:200px"/>
+Desenvolvido em camadas, seguindo o padrão SOLID, utilizando a Onion Architecture e TDD:<br />
+<img src="/Documentation/architecture_layers.jpg" style="width:500px"/>
+<hr /><br />
+<img src="/Documentation/microservices_scheme.png" style="width:500px"/>
 
 Descrição:
 

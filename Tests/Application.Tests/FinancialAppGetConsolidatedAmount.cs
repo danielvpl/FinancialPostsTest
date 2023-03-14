@@ -4,7 +4,6 @@ using AutoMapper;
 using Domain.Entities;
 using Domain.Enums;
 using Domain.Interfaces;
-using Domain.ViewModels;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -12,14 +11,14 @@ using Xunit;
 
 namespace Application.Tests
 {
-    public class InvestmentAppGetClientInvestments
+    public class FinancialAppGetConsolidatedAmount
     {
         private FinancialApp _app;
         private readonly Mock<IFinancialService> _service;
         private readonly Mock<IMapper> _mapper;
         private List<Financial> _financialPosts;
 
-        public InvestmentAppGetClientInvestments()
+        public FinancialAppGetConsolidatedAmount()
         {
             _service = new Mock<IFinancialService>();
             _mapper = new Mock<IMapper>();
@@ -46,7 +45,7 @@ namespace Application.Tests
         }
 
         [Fact]
-        public async void ShouldReturnAverage()
+        public async void ShouldReturnFinancialConsolidated()
         {
             var dt = DateTime.Parse("13/03/2023");
 
@@ -55,7 +54,7 @@ namespace Application.Tests
             var result = await _app.GetFinancialConsolidated(dt);
 
             Assert.NotNull(result);
-            Assert.IsType<ClientInvestments>(result);            
+            Assert.IsType<FinancialConsolidatedResponse>(result);            
         }
     }
 }

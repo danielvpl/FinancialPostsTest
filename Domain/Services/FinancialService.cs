@@ -21,11 +21,14 @@ namespace Domain.Services
 
         public async Task<List<Financial>> ConsolidatedReport(DateTime date)
         {
-            var cacheEntry = await _cache.GetOrCreateAsync<List<Financial>>("ResultCache" + date.ToShortDateString(), async entry =>
+            var cacheEntry = await _cache.GetOrCreateAsync("ResultCache", entry =>
             {
-                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
-                entry.SetPriority(CacheItemPriority.High);
-                return await _repository.GetFinancialPosts(date.Date);                
+                if (entry != null)
+                {
+                    entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1);
+                    entry.SetPriority(CacheItemPriority.High);
+                }
+                return _repository.GetFinancialPosts(date.Date);                
             });
             return cacheEntry;
         }

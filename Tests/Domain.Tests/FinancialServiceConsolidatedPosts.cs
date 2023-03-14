@@ -9,18 +9,15 @@ using Xunit;
 
 namespace Domain.Tests
 {
-    public class InvestmentTdsServiceCalculateInvestment
+    public class FinancialAppGetConsolidatedPosts
     {
         private readonly FinancialService _service;
         private readonly Mock<IFinancialRepository> _repo;
-        private readonly Mock<IMemoryCache> _cache;
         private readonly List<Financial> _financialPosts;
 
-        public InvestmentTdsServiceCalculateInvestment()
+        public FinancialAppGetConsolidatedPosts()
         {
             _repo = new Mock<IFinancialRepository>();
-            _cache = new Mock<IMemoryCache>();
-            _service = new FinancialService(_repo.Object, _cache.Object);
             _financialPosts = new List<Financial>()
             {
                 new Financial(){
@@ -38,20 +35,34 @@ namespace Domain.Tests
                     DateCreated = DateTime.Parse("2023-03-13T12:30:00"),
                     FinancialType = Enums.FinancialType.Debit
                 }
-            };          
+            };
+            var memoryCache = MockMemoryCacheService.GetMemoryCache(_financialPosts);
+            _service = new FinancialService(_repo.Object, memoryCache);
         }
 
         [Fact]
         public async void ShouldReturnConsolidatedFinancialPosts()
         {
-            var dt = DateTime.Parse("13/03/2023");
+            var dt = new DateTime(2023, 3, 13);
 
-            _repo.Setup(x => x.GetFinancialPosts(null)).ReturnsAsync(_financialPosts);           
+            _repo.Setup(x => x.GetFinancialPosts(dt.Date)).ReturnsAsync(_financialPosts);
 
             var result = await _service.ConsolidatedReport(dt);
-
+            
             Assert.NotNull(result);
             Assert.IsType<List<Financial>>(result);            
+        }
+
+        public static class MockMemoryCacheService
+        {
+            public static IMemoryCache GetMemoryCache(object expectedValue)
+            {
+                var mockMemoryCache = new Mock<IMemoryCache>();
+                mockMemoryCache
+                    .Setup(x => x.TryGetValue(It.IsAny<object>(), out expectedValue))
+                    .Returns(true);
+                return mockMemoryCache.Object;
+            }
         }
     }
 }

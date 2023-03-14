@@ -3,7 +3,7 @@
 
 - Projeto da solução: 
 
-# Desenvolvido em camadas, seguindo o padrão SOLID, utilizando a Onion Architecture e TDD:<br /><br />
+### Desenvolvido em camadas, seguindo o padrão SOLID, utilizando a Onion Architecture e TDD:<br /><br />
 <img src="/Documentation/architecture_layers.jpg" style="width:500px"/>
 <hr />
 <img src="/Documentation/microservices_scheme.png" style="width:500px"/>
@@ -29,7 +29,7 @@ Base de dados (FinancialPosts) criada no SQLEXPRESS utilizando EF Migration, par
 
 8 Configuração de AutoMapper e Injeção de Dependências.
 
-# Como rodar o projeto local
+## Como rodar o projeto local
 - Ir para o diretório /Presentation do projeto e executar o comando "dotnet run"
 - Acessar o endereço https://localhost:5001/swagger no browser, para acessar a documentação da API gerada no swagger.
 

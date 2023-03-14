@@ -37,7 +37,7 @@ namespace Domain.Tests
                 }
             };
             var memoryCache = MockMemoryCacheService.GetMemoryCache(_financialPosts);
-            _service = new FinancialService(_repo.Object, memoryCache);
+            _service = new FinancialService(_repo.Object);
         }
 
         [Fact]

@@ -3,9 +3,9 @@
 
 - Projeto da solução: 
 
-Desenvolvido em camadas, seguindo o padrão SOLID, utilizando a Onion Architecture e TDD:<br />
+# Desenvolvido em camadas, seguindo o padrão SOLID, utilizando a Onion Architecture e TDD:<br /><br />
 <img src="/Documentation/architecture_layers.jpg" style="width:500px"/>
-<hr /><br />
+<hr />
 <img src="/Documentation/microservices_scheme.png" style="width:500px"/>
 
 Descrição:

@@ -10,9 +10,9 @@ Desenvolvido em camadas, seguindo o padrão SOLID, Onion Architecture e TDD.
 Descrição:
 
 1 Criação do repositório 'FinancialRepository' responsável pelo acesso e manutenção de dados;
-	1.1 Base de dados (FinancialPosts) criada no SQLEXPRESS utilizando EF Migration:
-		- Add-Migration InitialCreate
-		- Update-Database
+Base de dados (FinancialPosts) criada no SQLEXPRESS utilizando EF Migration, para criar a base de dados utilizar os comandos no 'Console do Gerenciador de Pacotes':
+- Add-Migration InitialCreate
+- Update-Database
 
 2 Criação do serviço: FinancialService - Responsável para salvar e listar os lançamentos;
 
@@ -27,3 +27,7 @@ Descrição:
 7 Implementação de Testes Unitários por camadas;
 
 8 Configuração de AutoMapper e Injeção de Dependências.
+
+#Como rodar o projeto local
+- Ir para o diretório /Presentation do projeto e executar o comando "dotnet run"
+- Acessar o endereço https://localhost:5001/swagger no browser, para acessar a documentação da API gerada no swagger.

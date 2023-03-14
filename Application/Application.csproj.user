@@ -2,5 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ShowAllFiles>true</ShowAllFiles>
+    <_LastSelectedProfileId>D:\Projetos\Testes\FinancialPostsTest\Application\Properties\PublishProfiles\registry.hub.docker.com_danielvpl.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
 </Project>

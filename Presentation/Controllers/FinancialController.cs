@@ -30,8 +30,16 @@ namespace Presentation.Controllers
             };
         }
 
+        /// <summary>
+        /// PostFinancial - Realizar lançamento financeiro
+        /// </summary>
+        /// <param name="financialPost">
+        /// Informar um valor decimal no parâmetro 'value'. Ex: 10.5
+        /// Informar o valor 0 ou 1 para o parâmetro financialType, onde 0 = Crédito e 1 = Débito
+        /// </param>
+        /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<bool>> PostFinancial([FromQuery] FinancialDto financialPost)
+        public async Task<ActionResult<bool>> PostFinancial(FinancialDto financialPost)
         {
             try
             {

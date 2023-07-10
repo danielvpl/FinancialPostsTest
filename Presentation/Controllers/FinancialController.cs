@@ -9,7 +9,7 @@ namespace Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FinancialController : ControllerBase
+    public class FinancialController : Controller
     {
         private readonly IFinancialApp _app;
       
